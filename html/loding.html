@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loding</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* نمط شاشة التحميل */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1050; /* أعلى من أي محتوى */
+      flex-direction: column;
+    }
+
+    /* النص */
+    #loading p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #007bff;
+    }
+
+    /* إخفاء المحتوى أثناء التحميل */
+    #content {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- شاشة التحميل -->
+  <div id="loading">
+    <!-- صورة الطبيب المتحركة -->
+    <img src="/images/loder.gif" 
+         alt="Loading Doctor" 
+         width="200">
+    <p>يرجى الانتظار...</p>
+  </div>
+
+  <!-- المحتوى الرئيسي -->
+  <div id="content" class="container mt-5">
+    <h1>مرحباً بك في موقعي!</h1>
+    <p>تم تحميل الصفحة بنجاح.</p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // إخفاء شاشة التحميل بعد 8 ثوانٍ وتحويل المستخدم إلى الصفحة الرئيسية
+    setTimeout(() => {
+      // إخفاء شاشة التحميل
+      document.getElementById('loading').style.display = 'none';
+      
+      // إظهار المحتوى
+      document.getElementById('content').style.display = 'block';
+      
+      // الانتقال إلى الصفحة الرئيسية (Home) بعد 5 ثوانٍ
+      window.location.href = '/html/index.html';  // استبدل '/home' بعنوان الصفحة الرئيسية الخاصة بك
+    }, 5000);
+  </script>
+</body>
+</html>
